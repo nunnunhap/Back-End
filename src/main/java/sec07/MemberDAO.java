@@ -35,6 +35,7 @@ public class MemberDAO {
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
+			// 위의 Class.forName()의 값으로 DriverManager 객체 생성하고 getConnection() 메서드로 연결
 			// conn객체가 생성된다.(데이터베이스와 연결상태)
 			// conn객체가 생성 시 오류가 나면 (url, uid, pw)값이 문제일 수 있음.
 			conn = DriverManager.getConnection(url, uid, pw);
@@ -85,8 +86,9 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.executeUpdate();
-			pstmt.close();
 			
+			pstmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
