@@ -29,7 +29,7 @@ public class SetCookieValue extends HttpServlet {
 		
 		// 쿠키 작업
 		Cookie cookie = new Cookie("cookieTest", URLEncoder.encode("JSP프로그래밍입니다.", "utf-8"));
-		cookie.setMaxAge(24 * 60 * 60); // 1일(초단위)
+		cookie.setMaxAge(24 * 60 * 60); // 1일(초단위) 보관
 		
 		// 이 작업을 하면 client(브라우저)에게 쿠키 정보가 전송된다.
 		response.addCookie(cookie); // 자동으로 서버에 존재하고 있는 정보가 브라우저로 보내짐.
